@@ -1,25 +1,41 @@
-import { IssueDetail } from '@/@types/global';
-import { fetchIssueDetail } from '@/api/issue';
-import LoadingSpinner from '@/components/Spinner/LoadingSpinner';
-import convertDateToKorean from '@/utils/convertDate';
+import { useRecoilState } from 'recoil';
+import { styled } from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { styled } from 'styled-components';
+import { IssueDetail } from '@/@types/global';
+import { fetchIssueDetail } from '@/api/issue';
+import IssuePost from '@/components/Issue/IssuePost';
+import { loadingState } from '@/@recoil/loadingState';
+import convertDateToKorean from '@/utils/convertDate';
+import LoadingSpinner from '@/components/Spinner/LoadingSpinner';
 
 const IssueDetailPage = () => {
   const [issue, setIssue] = useState<IssueDetail | undefined>();
+  const [isLoading, setIsLoading] = useRecoilState(loadingState);
   const { issueId } = useParams<{ issueId: string }>();
 
   useEffect(() => {
-    if (issueId) {
-      fetchIssueDetail(Number(issueId))
-        .then((data) => setIssue(data))
-        .catch((error: Error) => console.error(error));
-    }
+    if (!issueId) return;
+
+    const fetchDetails = async () => {
+      setIsLoading(true);
+      try {
+        const data = await fetchIssueDetail(Number(issueId));
+        setIssue(data);
+      } catch (error) {
+        console.error(error);
+      }
+      setIsLoading(false);
+    };
+
+    fetchDetails();
   }, [issueId]);
-  if (!issue) {
+
+  if (isLoading || !issue) {
     return <LoadingSpinner />;
   }
+
+  console.log(issue.body);
 
   return (
     <IssueDetailWrapper>
@@ -41,6 +57,7 @@ const IssueDetailPage = () => {
           <p>코멘트: {issue.comments}</p>
         </IssueComment>
       </IssueContainer>
+      {issue.body && <IssuePost issue={issue.body || ''} />}
     </IssueDetailWrapper>
   );
 };
@@ -86,13 +103,6 @@ const IssueTitle = styled.div`
   font-weight: 600;
   margin-left: 14px;
 `;
-
-// const IssueDetailBody = styled.div`
-//   padding: 1rem;
-//   img {
-//     width: 100%;
-//   }
-// `;
 
 const IssueUser = styled.div`
   display: flex;
