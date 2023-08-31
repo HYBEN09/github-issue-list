@@ -22,6 +22,7 @@
     "styled-reset": "4.5.1"
   },
   "devDependencies": {
+    "@octokit/types": "11.1.0",
     "@types/node": "20.5.7",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
@@ -37,6 +38,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "husky": "8.0.3",
     "prettier": "3.0.2",
+    "react-markdown": "8.0.7",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
