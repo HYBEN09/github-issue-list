@@ -2,6 +2,7 @@ import HomePage from './pages/HomePage';
 import ErrorPage from './pages/ErrorPage';
 import RootLayout, { BaseLayout } from './pages/RootLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import IssueDetailPage from './pages/IssueDetailPage';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,14 @@ const router = createBrowserRouter([
         element: (
           <BaseLayout>
             <HomePage />
+          </BaseLayout>
+        ),
+      },
+      {
+        path: '/issue/:issueId',
+        element: (
+          <BaseLayout>
+            <IssueDetailPage />
           </BaseLayout>
         ),
       },
