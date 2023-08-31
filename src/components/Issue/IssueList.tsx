@@ -14,7 +14,7 @@ const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
   const [isLoading, setIsLoading] = useRecoilState(loadingState);
   const [currentPage, setCurrentPage] = useState(1);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
-  console.log(issues);
+
   const fetchMoreIssues = async () => {
     if (isFetchingMore) return;
     try {
