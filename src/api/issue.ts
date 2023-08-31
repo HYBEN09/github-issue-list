@@ -2,7 +2,7 @@ import { Octokit } from '@octokit/rest';
 import { API_URL } from '@/constants/config';
 import { Issue, IssueDetail } from '@/@types/global';
 
-const ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
+const ACCESS_TOKEN = import.meta.env.VITE_GITHUB_ACCESS_TOKEN;
 
 const octokit = new Octokit({
   auth: `token ${ACCESS_TOKEN}`,

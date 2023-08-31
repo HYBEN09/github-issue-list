@@ -1,8 +1,13 @@
+import { RecoilRoot } from 'recoil';
+import GlobalStyle from './GlobalStyle';
+import AppRoutes from './routes';
+
 function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <RecoilRoot>
+      <GlobalStyle />
+      <AppRoutes />
+    </RecoilRoot>
   );
 }
 
