@@ -29,7 +29,7 @@ const IssueListItem: React.FC<{ issue: Issue; index: number }> = ({ issue, index
             <IssueDate>작성일: {convertDateToKorean(issue.createdAt)}</IssueDate>
             <IssueComment>코멘트수: {issue.comments}</IssueComment>
           </IssueDetails>
-          {index % 5 === 4 && <Advertisement />}
+          {index % 4 === 3 && <Advertisement />}
         </IssueItem>
       </Link>
     </div>

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-children-prop */
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
+import remarkGfm from 'remark-gfm';
 
 const MarkdownWrapper = styled.div`
   margin-top: 30px;
@@ -9,13 +10,12 @@ const MarkdownWrapper = styled.div`
 `;
 
 interface IssuePostProps {
-  issue: string;
+  content: string;
 }
-const IssuePost = ({ issue }: IssuePostProps) => {
-  console.log(issue);
+const IssuePost = ({ content }: IssuePostProps) => {
   return (
     <MarkdownWrapper>
-      <ReactMarkdown>{issue}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
     </MarkdownWrapper>
   );
 };

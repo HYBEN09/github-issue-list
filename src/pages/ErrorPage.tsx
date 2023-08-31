@@ -32,6 +32,7 @@ const ErrorPage = () => {
       <ErrorPageWrapper>
         <ErrorPageTitle>Oops! An error occurred.</ErrorPageTitle>
         <ErrorPageMessage>죄송합니다. 데이터를 로드할 수 없습니다.🥲</ErrorPageMessage>
+        <button>다시 시도</button>
       </ErrorPageWrapper>
     </>
   );

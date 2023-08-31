@@ -9,18 +9,20 @@
 ### 요구 사항
 
 - 필수 요구 사항
-    - 이슈 목록 및 상세 화면 기능 구현
-    - 데이터 요청 중 로딩 표시
-    - 에러 화면 구현
-    - 지정된 조건(open 상태, 코멘트 많은 순)에 맞게 데이터 요청 및 표시
- 
+  - 이슈 목록 및 상세 화면 기능 구현
+  - 데이터 요청 중 로딩 표시
+  - 에러 화면 구현
+  - 지정된 조건(open 상태, 코멘트 많은 순)에 맞게 데이터 요청 및 표시
+
 ### ✔️ 배포
-- ```vercel``` [🔗Link](https://github-issue-list-zeta.vercel.app/)
+
+- `vercel` [🔗Link](https://github-issue-list-zeta.vercel.app/)
 
 ## 🛫 시작 가이드
+
 - 실행을 위해 다음 Node version이 필요합니다. [Node.js ,v19.0.0]
 
- ```bash
+```bash
 $ git clone https://github.com/HYBEN09/github-issue-list.git
 $ cd github-issue-list
 $ npm install
@@ -28,6 +30,7 @@ $ npm run start
 ```
 
 ## 🛠️ 사용한 기술 스택
+
 #### Development
 
 ![Typescript](https://img.shields.io/badge/Typescript-3366CC?style=for-the-badge&logo=Javascript&logoColor=black)
@@ -36,6 +39,7 @@ $ npm run start
 <img src="https://img.shields.io/badge/recoil-CCCCFF?style=for-the-badge&logo=recoil&logoColor=white"/>
 
 ## 🌲프로젝트 구조
+
 ```bash
 .
 ├── README.md

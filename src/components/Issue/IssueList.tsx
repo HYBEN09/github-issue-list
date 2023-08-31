@@ -7,13 +7,14 @@ import { useRecoilState } from 'recoil';
 import LoadingSpinner from '../Spinner/LoadingSpinner';
 import IssueListItem from './IssueListItem';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import { issuesState } from '@/@recoil/issueState';
 
 const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
-  const [issues, setIssues] = useState<Issue[]>([]);
+  const [issues, setIssues] = useRecoilState(issuesState);
   const [isLoading, setIsLoading] = useRecoilState(loadingState);
   const [currentPage, setCurrentPage] = useState(1);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
-
+  console.log(issues);
   const fetchMoreIssues = async () => {
     if (isFetchingMore) return;
     try {
@@ -44,7 +45,7 @@ const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
     };
 
     fetchData();
-  }, [repository, setIsLoading]);
+  }, [repository]);
 
   return (
     <IssueListContainer>

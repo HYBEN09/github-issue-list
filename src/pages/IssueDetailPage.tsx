@@ -35,8 +35,6 @@ const IssueDetailPage = () => {
     return <LoadingSpinner />;
   }
 
-  console.log(issue.body);
-
   return (
     <IssueDetailWrapper>
       <IssueContainer>
@@ -57,7 +55,7 @@ const IssueDetailPage = () => {
           <p>코멘트: {issue.comments}</p>
         </IssueComment>
       </IssueContainer>
-      {issue.body && <IssuePost issue={issue.body || ''} />}
+      {issue.body && <IssuePost content={issue.body || ''} />}
     </IssueDetailWrapper>
   );
 };
