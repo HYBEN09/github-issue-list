@@ -10,7 +10,6 @@ const LoadingSpinnerContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.5);
 `;
 
 const LoadingSpinner = () => {

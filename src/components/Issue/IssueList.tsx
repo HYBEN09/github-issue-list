@@ -13,10 +13,20 @@ const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
   const [isLoading, setIsLoading] = useRecoilState(loadingState);
 
   useEffect(() => {
-    fetchIssues({ page: 1 })
-      .then((data: Issue[]) => setIssues(data))
-      .catch((error: Error) => console.error(error));
-  }, [repository]);
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const data = await fetchIssues({ page: 1 });
+        setIssues(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [repository, setIsLoading]);
 
   return (
     <IssueListContainer>
