@@ -1,14 +1,9 @@
-import AppRoutes from './routes';
-import { RecoilRoot } from 'recoil';
-import GlobalStyle from './GlobalStyle';
-
-const App = () => {
+function App() {
   return (
-    <RecoilRoot>
-      <GlobalStyle />
-      <AppRoutes />
-    </RecoilRoot>
+    <div>
+      <h1>App</h1>
+    </div>
   );
-};
+}
 
 export default App;
