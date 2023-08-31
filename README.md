@@ -21,10 +21,68 @@
 - 실행을 위해 다음 Node version이 필요합니다. [Node.js ,v19.0.0]
 
  ```bash
-$ git clone https://github.com/WantedTeam17/pre-onboarding-12th-1-17.git
-$ cd pre-onboarding-12th-1-17
+$ git clone https://github.com/HYBEN09/github-issue-list.git
+$ cd github-issue-list
 $ npm install
 $ npm run start
 ```
 
 ## 🛠️ 사용한 기술 스택
+#### Development
+
+![Typescript](https://img.shields.io/badge/Typescript-3366CC?style=for-the-badge&logo=Javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+<img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
+<img src="https://img.shields.io/badge/recoil-CCCCFF?style=for-the-badge&logo=recoil&logoColor=white"/>
+
+## 🌲프로젝트 구조
+```bash
+.
+├── README.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   ├── assets
+│   │   └── loading.svg
+│   └── vite.svg
+├── src
+│   ├── @recoil
+│   │   ├── issueState.ts
+│   │   └── loadingState.ts
+│   ├── @types
+│   │   └── global.d.ts
+│   ├── App.tsx
+│   ├── GlobalStyle.ts
+│   ├── api
+│   │   └── issue.ts
+│   ├── components
+│   │   ├── Issue
+│   │   │   ├── Advertisement.tsx
+│   │   │   ├── IssueList.tsx
+│   │   │   ├── IssueListItem.tsx
+│   │   │   ├── IssuePost.tsx
+│   │   │   └── styled.ts
+│   │   └── Spinner
+│   │       └── LoadingSpinner.tsx
+│   ├── constants
+│   │   └── config.ts
+│   ├── hooks
+│   │   └── useInfiniteScroll.ts
+│   ├── layout
+│   │   └── Header.tsx
+│   ├── main.tsx
+│   ├── pages
+│   │   ├── ErrorPage.tsx
+│   │   ├── HomePage.tsx
+│   │   ├── IssueDetailPage.tsx
+│   │   └── RootLayout.tsx
+│   ├── routes.tsx
+│   ├── utils
+│   │   └── convertDate.ts
+│   └── vite-env.d.ts
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+```
