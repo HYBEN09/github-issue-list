@@ -2,14 +2,14 @@ import { Issue } from '@/@types/global';
 import { useRecoilState } from 'recoil';
 import { fetchIssues } from '@/api/issue';
 import IssueListItem from './IssueListItem';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { issuesState } from '@/@recoil/issueState';
 import { loadingState } from '@/@recoil/loadingState';
 import LoadingSpinner from '../Spinner/LoadingSpinner';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 import { IssueListContainer, IssueListContent, LoadingContainer } from './styled';
 
-const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
+const IssueList = () => {
   const [issues, setIssues] = useRecoilState(issuesState);
   const [isLoading, setIsLoading] = useRecoilState(loadingState);
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,6 +17,7 @@ const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
 
   const fetchMoreIssues = async () => {
     if (isFetchingMore) return;
+
     try {
       setIsFetchingMore(true);
       const data = await fetchIssues({ page: currentPage + 1 });
@@ -37,6 +38,7 @@ const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
         setIsLoading(true);
         const data = await fetchIssues({ page: 1 });
         setIssues(data);
+        setIsFetchingMore(true);
       } catch (error) {
         console.error(error);
       } finally {
@@ -45,7 +47,7 @@ const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
     };
 
     fetchData();
-  }, [repository]);
+  }, []);
 
   return (
     <IssueListContainer>
@@ -54,12 +56,12 @@ const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
         {issues.map((issue: Issue, index) => (
           <IssueListItem key={index} issue={issue} index={index} />
         ))}
+        <div ref={targetRef}></div>
         {isFetchingMore && (
           <LoadingContainer>
             <img src="/assets/loading.svg" alt="로딩 중..." width={50} height={50} />
           </LoadingContainer>
         )}
-        <div ref={targetRef}></div>
       </IssueListContent>
     </IssueListContainer>
   );
