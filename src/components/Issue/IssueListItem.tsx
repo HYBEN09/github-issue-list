@@ -1,7 +1,7 @@
 import React from 'react';
 import { Issue } from '@/@types/global';
 import { Link } from 'react-router-dom';
-import Advertisement from './Advertisement';
+import AdBanner from './Advertisement';
 import convertDateToKorean from '@/utils/convertDate';
 
 import {
@@ -29,9 +29,9 @@ const IssueListItem: React.FC<{ issue: Issue; index: number }> = ({ issue, index
             <IssueDate>작성일: {convertDateToKorean(issue.createdAt)}</IssueDate>
             <IssueComment>코멘트수: {issue.comments}</IssueComment>
           </IssueDetails>
-          {index % 4 === 3 && <Advertisement />}
         </IssueItem>
       </Link>
+      {index % 4 === 3 && <AdBanner />}
     </div>
   );
 };

@@ -8,13 +8,16 @@ const AdImage = styled.div`
 const AdButton = styled.button`
   display: inline-block;
   text-decoration: none;
-  border: 1px solid #f0edcc;
+  width: 100%;
   padding: 8px;
   border-radius: 5px;
-  margin: 10px;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
   background-color: transparent;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
 
   &:hover {
     background-color: #f0edcc;
@@ -24,6 +27,7 @@ const AdButton = styled.button`
 const AdImageWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 const Advertisement = () => {
