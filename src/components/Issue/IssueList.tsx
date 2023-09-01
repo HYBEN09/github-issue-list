@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { fetchIssues } from '@/api/issue';
 import { Issue } from '@/@types/global';
-import { IssueListContainer, IssueListContent } from './styled';
-import { loadingState } from '@/@recoil/loadingState';
 import { useRecoilState } from 'recoil';
-import LoadingSpinner from '../Spinner/LoadingSpinner';
+import { fetchIssues } from '@/api/issue';
 import IssueListItem from './IssueListItem';
-import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import React, { useEffect, useState } from 'react';
 import { issuesState } from '@/@recoil/issueState';
+import { loadingState } from '@/@recoil/loadingState';
+import LoadingSpinner from '../Spinner/LoadingSpinner';
+import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import { IssueListContainer, IssueListContent, LoadingContainer } from './styled';
 
 const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
   const [issues, setIssues] = useRecoilState(issuesState);
@@ -54,7 +54,11 @@ const IssueList: React.FC<{ repository: string }> = ({ repository }) => {
         {issues.map((issue: Issue, index) => (
           <IssueListItem key={index} issue={issue} index={index} />
         ))}
-        {isFetchingMore && <div>로딩 중...</div>}
+        {isFetchingMore && (
+          <LoadingContainer>
+            <img src="/assets/loading.svg" alt="로딩 중..." width={50} height={50} />
+          </LoadingContainer>
+        )}
         <div ref={targetRef}></div>
       </IssueListContent>
     </IssueListContainer>

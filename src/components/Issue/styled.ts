@@ -80,3 +80,10 @@ export const loadingOverlay = styled.div`
   align-items: center;
   z-index: 9999;
 `;
+
+export const LoadingContainer = styled.div`
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px;
+`;
