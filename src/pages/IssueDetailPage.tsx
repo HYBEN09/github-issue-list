@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IssueDetail } from '@/@types/global';
 import { fetchIssueDetail } from '@/api/issue';
-import IssuePost from '@/components/Issue/IssuePost';
+import IssuePost from '@/components/Markdown/IssuePost';
 import { loadingState } from '@/@recoil/loadingState';
 import convertDateToKorean from '@/utils/convertDate';
 import LoadingSpinner from '@/components/Spinner/LoadingSpinner';
