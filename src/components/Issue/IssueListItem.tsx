@@ -1,4 +1,5 @@
 import React from 'react';
+import { Issue } from '@/@types/global';
 import { Link } from 'react-router-dom';
 import Advertisement from './Advertisement';
 import convertDateToKorean from '@/utils/convertDate';
@@ -13,12 +14,11 @@ import {
   IssueTitle,
   IssueUser,
 } from './styled';
-import { Issue } from '@/@types/global';
 
 const IssueListItem: React.FC<{ issue: Issue; index: number }> = ({ issue, index }) => {
   return (
     <div>
-      <Link to={`/issue/${issue.number}`}>
+      <Link to={`/issue/${issue.number}`} style={{ textDecoration: 'none' }}>
         <IssueItem key={issue.number}>
           <IssueHeader>
             <IssueNumber>#{issue.number}</IssueNumber>

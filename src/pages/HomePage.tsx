@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div>
       <Header />
-      <IssueList repository={''} />
+      <IssueList repository={'1'} />
     </div>
   );
 };

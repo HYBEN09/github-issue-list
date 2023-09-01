@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IssueDetail } from '@/@types/global';
 import { fetchIssueDetail } from '@/api/issue';
-import IssuePost from '@/components/Markdown/IssuePost';
+import IssuePost from '@/components/Markdown/Markdown';
 import { loadingState } from '@/@recoil/loadingState';
 import convertDateToKorean from '@/utils/convertDate';
 import LoadingSpinner from '@/components/Spinner/LoadingSpinner';
@@ -47,12 +47,18 @@ const IssueDetailPage = () => {
             <p>{issue.title}</p>
           </IssueTitle>
           <IssueUser>
-            <p>작성자: {issue.authorName}</p>
-            <p>작성일: {convertDateToKorean(issue.createdAt)}</p>
+            <p>
+              <b>작성자:</b> {issue.authorName}
+            </p>
+            <p>
+              <b>작성일:</b> {convertDateToKorean(issue.createdAt)}
+            </p>
           </IssueUser>
         </IssueInfo>
         <IssueComment>
-          <p>코멘트: {issue.comments}</p>
+          <p>
+            <b>코멘트:</b> {issue.comments}
+          </p>
         </IssueComment>
       </IssueContainer>
       {issue.body && <IssuePost content={issue.body || ''} />}
@@ -96,19 +102,19 @@ const IssueTitle = styled.div`
   align-items: center;
   width: 570px;
   gap: 12px;
-  margin-top: 24px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin-left: 14px;
+  margin-top: 8px;
 `;
 
 const IssueUser = styled.div`
   display: flex;
   align-items: center;
   margin-left: 16px;
-  margin-top: 16px;
   gap: 24px;
   font-size: 15px;
+  margin-top: -8px;
 `;
 
 const IssueComment = styled.div`

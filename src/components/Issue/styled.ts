@@ -5,11 +5,11 @@ export const IssueListContainer = styled.section`
   max-width: 800px;
   max-height: 100%;
   margin: 0 auto;
-  padding: 100px 20px 20px;
+  padding: 130px 20px 20px;
 `;
 export const IssueListContent = styled.div`
   background-color: #fff;
-  padding: 16px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 `;
@@ -22,22 +22,26 @@ export const IssueHeaderTitle = styled.h1`
   margin-top: 100px;
 `;
 
+// IssueListItem
 export const IssueItem = styled.div`
   padding: 10px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  color: #000;
 `;
+
+export const IssueItemContainer = styled.div``;
 
 export const IssueHeader = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 14px;
+  text-decoration: none;
 `;
 
-export const IssueNumber = styled.div`
+export const IssueNumber = styled.p`
   font-weight: bold;
 `;
 

@@ -6,20 +6,21 @@ const HeaderStyle = styled.header`
   color: #f0edcc;
   font-weight: 800;
   width: 100%;
+  height: 80px;
   margin: auto;
   display: flex;
   gap: 0.4rem;
   justify-content: center;
-  font-size: 2rem;
+  align-items: center;
+  font-size: 28px;
   padding: 1rem 0;
-  z-index: 100;
+  z-index: 10000;
 `;
 
 const Header = () => {
   return (
     <HeaderStyle>
-      <h1>facebook</h1>
-      <span>/</span>
+      <h2>facebook /</h2>
       <h2>react</h2>
     </HeaderStyle>
   );
