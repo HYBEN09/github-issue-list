@@ -5,6 +5,8 @@ import AdBanner from './Advertisement';
 import convertDateToKorean from '@/utils/convertDate';
 import { IssueDate, IssueDetails, IssueHeader, IssueItem, IssueTitle } from './styled';
 
+const AD_BANNER_INTERVAL = 4;
+
 const IssueListItem: React.FC<{ issue: Issue; index: number }> = ({ issue, index }) => {
   return (
     <div>
@@ -27,7 +29,7 @@ const IssueListItem: React.FC<{ issue: Issue; index: number }> = ({ issue, index
           </IssueDetails>
         </IssueItem>
       </Link>
-      {index % 4 === 3 && <AdBanner />}
+      {index % AD_BANNER_INTERVAL === AD_BANNER_INTERVAL - 1 && <AdBanner />}
     </div>
   );
 };
